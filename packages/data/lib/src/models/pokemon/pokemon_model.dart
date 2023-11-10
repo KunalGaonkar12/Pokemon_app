@@ -1,28 +1,33 @@
-class PokemonModel {
-  const PokemonModel({
-    required this.id,
-    required this.name,
-    required this.weight,
-    required this.height,
-    required this.generation,
-    required this.imageUrl,
-    required this.type,
-    required this.abilities,
-    required this.baseExperience,
-    required this.stats,
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  final int id;
-  final String name;
-  final String weight;
-  final String height;
-  final String generation;
-  final String imageUrl;
-  final List<String> type; // Assuming a Pokémon can have multiple types
-  final List<String>
-      abilities; // Assuming a Pokémon can have multiple abilities
-  final int baseExperience;
-  final Map<String, int> stats; // e.g., {"speed": 60, "attack": 80}
+part 'pokemon_model.freezed.dart';
+
+@freezed
+class PokemonModel with _$PokemonModel {
+  const factory PokemonModel({
+    required int id,
+    required String name,
+    required String weight,
+    required String height,
+    required String generation,
+    required String imageUrl,
+    required List<String> type,
+    required List<String> abilities,
+    required int  baseExperience,
+    required Map<String, int>  stats,
+  })= _PokemonModel;
+
+  // final int id;
+  // final String name;
+  // final String weight;
+  // final String height;
+  // final String generation;
+  // final String imageUrl;
+  // final List<String> type; // Assuming a Pokémon can have multiple types
+  // final List<String>
+  //     abilities; // Assuming a Pokémon can have multiple abilities
+  // final int baseExperience;
+  // final Map<String, int> stats; // e.g., {"speed": 60, "attack": 80}
 
   @override
   bool operator ==(Object other) {
